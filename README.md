@@ -3,7 +3,7 @@
 [![Crates.io](https://img.shields.io/crates/v/sh1108.svg)](https://crates.io/crates/sh1108)
 [![Docs.rs](https://docs.rs/sh1108/badge.svg)](https://docs.rs/sh1108)
 
-[![SH1108 display module showing information about the Rust driver crate](readme_banner.jpg?raw=true)](examples/demo.rs)
+[![SH1108 display module showing information about the Rust driver crate](doc/readme_banner.webp?raw=true)](examples/demo.rs)
 
 I2C/SPI driver for the SH1108 OLED display written in 100% Rust.
 
