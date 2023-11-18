@@ -1,0 +1,47 @@
+[package]
+authors = ["Anton Lazarev <https://antonok.com>", "James Waples <james@wapl.es>"]
+categories = ["embedded", "no-std"]
+description = "`display-interface` compatible driver for the SH1108 OLED display controller"
+documentation = "https://docs.rs/sh1108"
+repository = "https://github.com/antonok-edm/sh1108"
+exclude = ["readme_banner.jpg", "docs"]
+keywords = ["no-std", "sh1108", "oled", "embedded", "embedded-hal-driver"]
+license = "MIT OR Apache-2.0"
+name = "sh1108"
+readme = "README.md"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.docs.rs]
+targets = [ "thumbv7m-none-eabi", "thumbv7em-none-eabihf" ]
+
+[dependencies]
+embedded-hal = "0.2"
+display-interface = "0.4"
+embedded-graphics-core = { version = "0.4", optional = true }
+
+[dev-dependencies]
+cortex-m = "0.7"
+cortex-m-rt = "0.7"
+embedded-graphics = "0.8"
+profont = "0.7"
+panic-semihosting = "0.6"
+display-interface-i2c = "0.4"
+display-interface-spi = "0.4"
+
+[dev-dependencies.stm32f1xx-hal]
+version = "0.10"
+features = [ "rt", "stm32f103" ]
+
+[features]
+default = ["graphics"]
+graphics = ["embedded-graphics-core"]
+
+[profile.dev]
+codegen-units = 1
+incremental = false
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
