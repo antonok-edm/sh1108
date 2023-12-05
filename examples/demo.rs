@@ -14,7 +14,7 @@
 //!      CS -> PA1 (optional, connect to ground on module if unused)
 //! ```
 //!
-//! Run on a Blue Pill with `cargo run --example image`.
+//! Run on a Blue Pill with `cargo run --example demo`.
 
 #![no_std]
 #![no_main]
