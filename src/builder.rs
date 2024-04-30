@@ -44,7 +44,10 @@
 //! ```
 
 use core::marker::PhantomData;
-use hal::{self, digital::v2::OutputPin};
+use hal::{
+    self,
+    digital::{ErrorType, OutputPin},
+};
 
 use crate::{
     displayrotation::DisplayRotation,
@@ -113,8 +116,11 @@ impl<PinE> NoOutputPin<PinE> {
     }
 }
 
-impl<PinE> OutputPin for NoOutputPin<PinE> {
+impl<PinE: hal::digital::Error> ErrorType for NoOutputPin<PinE> {
     type Error = PinE;
+}
+
+impl<PinE: hal::digital::Error> OutputPin for NoOutputPin<PinE> {
     fn set_low(&mut self) -> Result<(), PinE> {
         Ok(())
     }

@@ -59,7 +59,7 @@ fn main() -> ! {
         clocks,
     );
 
-    let spi_interface = SPIInterface::new(spi, dc, cs);
+    let spi_interface = SPIInterface::new(spi, dc);
 
     // If you don't need the Chip Select pin, use this instead:
     // let spi_interface = SPIInterfaceNoCS::new(spi, dc);
