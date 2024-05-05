@@ -61,9 +61,6 @@ fn main() -> ! {
 
     let spi_interface = SPIInterface::new(spi, dc);
 
-    // If you don't need the Chip Select pin, use this instead:
-    // let spi_interface = SPIInterfaceNoCS::new(spi, dc);
-
     let mut disp: GraphicsMode<_> = Builder::new().connect(spi_interface).into();
 
     disp.reset(&mut res, &mut delay).unwrap();
