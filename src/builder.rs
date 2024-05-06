@@ -132,9 +132,15 @@ impl<PinE: hal::digital::Error> OutputPin for NoOutputPin<PinE> {
 #[cfg(test)]
 mod tests {
     use super::NoOutputPin;
-    use embedded_hal::digital::v2::OutputPin;
+    use embedded_hal::digital::OutputPin;
 
+    #[derive(Debug)]
     enum SomeError {}
+    impl hal::digital::Error for SomeError {
+        fn kind(&self) -> embedded_hal::digital::ErrorKind {
+            embedded_hal::digital::ErrorKind::Other
+        }
+    }
 
     struct SomeDriver<P: OutputPin<Error = SomeError>> {
         #[allow(dead_code)]
