@@ -9,7 +9,7 @@ keywords = ["no-std", "sh1108", "oled", "embedded", "embedded-hal-driver"]
 license = "MIT OR Apache-2.0"
 name = "sh1108"
 readme = "README.md"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 
 [package.metadata.docs.rs]
